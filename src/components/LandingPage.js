@@ -1,7 +1,10 @@
 import React from "react";
 import logo from "../h3martlogo.png";
 
-export default function Landingpage(){
+export default function Landingpage(props){
+
+    console.log('this log is from the landing page ', props)
+
     return <React.Fragment>
         <div className="container">
             <nav>
