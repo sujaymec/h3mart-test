@@ -14,6 +14,17 @@ img
 body
   font-family: Lato  
 
+// Helper Classes
+
+.green-increase
+  color: #18c683
+
+.red-decrease
+  color: #db2828
+
+
+// Specific Classes
+
 .container
   max-width: 1024px
   margin: auto
@@ -25,7 +36,7 @@ nav
     align-items: center
   ul
     li
-      line-height: 60px
+      line-height: 36px
       padding: 13px
       font-size: 14px
       font-weight: 400
@@ -33,13 +44,25 @@ nav
   div#logo
     display: flex
     img
-      width: 100px
+      width: 80px
       margin: auto
+  
+  div#refresh-btn
+    display: flex
+    justify-content: flex-end
+    button
+      box-shadow: #00000066 0px 2px 15px -3px
+      background: #18c683 !important
+      padding: 7px 25px
+      border-radius: 30px
+      color: #fff
+      border: 1px solid #18c683
+      cursor: pointer
 
 
 ul#banner-list
   font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif
-  font-size: 1em
+  font-size: 14px
   font-weight: 700
   color: rgba(0,0,0,.87)
   text-transform: uppercase
@@ -50,17 +73,43 @@ ul#banner-list
     display: block
     flex-grow: 1
     flex-basis: 0
+    color: #fff
+    margin-top: 20px
+    span
+      font-size: 21px
+      font-weight: 400
 
   &:before
     content: ''
     display: block
     height: 150px
-    background-color: red
     background: linear-gradient(to right, #3f51b5, #64b5f6) #ffffff !important
+    box-shadow: inset 0px 2px 5px #38383833
     position: absolute
     z-index: -2
     left: 0px
     right: 0px
+
+table#crypto-list
+  background: #fff
+  width: 100%
+  margin-top: 20px
+  border-radius: 3px
+
+  thead tr th, tbody tr td
+    font-size: 13px
+    font-weight: 300
+    line-height: 28px
+    border-bottom: 1px solid #2224261a
+    text-align: right
+    padding: 5px 10px
+
+  tbody tr td
+    font-weight: 400
+    line-height: 48px
+
+  
+
 
 
 
