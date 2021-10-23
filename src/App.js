@@ -12,8 +12,16 @@ export default class App extends React.Component{
       coinData: {},
       paginationValue: 1
     }
+    this.paginate = this.paginate.bind(this)
   }
 
+  paginate(){
+    let paginationCount = this.state.paginationValue;
+    paginationCount++;
+    this.setState({
+      paginationValue: paginationCount
+    })
+  }
 
   componentDidMount() {
     fetch("https://api.coincap.io/v2/assets")
@@ -24,7 +32,6 @@ export default class App extends React.Component{
             apiCalled: true,
             coinData: result
           });
-          console.log(result)
         },
         (error) => {
           this.setState({
@@ -33,17 +40,13 @@ export default class App extends React.Component{
           });
         }
       )
-
-
-
-
   }
 
 
 
   render(){
     return    <div className="App">
-                <Landingpage coinData={this.state.coinData} paginationValue={this.state.paginationValue} />
+                <Landingpage coinData={this.state.coinData} paginationValue={this.state.paginationValue} paginate={this.paginate} />
               </div>
   }
 }

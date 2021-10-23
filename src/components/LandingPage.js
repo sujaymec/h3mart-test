@@ -2,6 +2,12 @@ import React from "react";
 import logo from "../h3martlogo.png";
 
 export default function Landingpage(props){
+    let coinDataList;
+
+    if(props.coinData.data){
+        let slicer = (props.paginationValue)*50;
+        coinDataList = props.coinData.data.slice(0,slicer);
+    }
 
     return <React.Fragment>
         <div className="container">
@@ -38,18 +44,22 @@ export default function Landingpage(props){
                     </tr>
                 </thead>
                 <tbody>
-                    {props.coinData.data ? props.coinData.data.map((item, index) => (
+                    {coinDataList ? coinDataList.map((item, index) => (
                     <tr key={index}>
                         <td style={{textAlign: 'center', width: '80px'}}>{item.rank}</td>
                         <td style={{textAlign: 'left', lineHeight: '18px'}}>{item.name}<br /><span style={{color: 'grey'}}>{item.symbol}</span></td>
                         <td>${parseFloat(item.priceUsd).toFixed(2)}</td>
                         <td>${parseFloat((item.marketCapUsd)/1000000000).toFixed(2)}b</td>
-                        <td>${parseFloat((item.vwap24Hr)/1000000000).toFixed(2)}</td>
-                        <td className="green-increase">{parseFloat(item.changePercent24Hr).toFixed(2)}</td>
+                        <td>${parseFloat((item.volumeUsd24Hr)/1000000000).toFixed(2)}b</td>
+                        <td className="green-increase">{parseFloat(item.changePercent24Hr).toFixed(2)}%</td>
                     </tr>
                     )) : ''}
                 </tbody>
             </table>
+
+            <div id="load-more">
+                <button onClick={props.paginate}>Load More</button>
+            </div>
         </div>
 
     </React.Fragment>
