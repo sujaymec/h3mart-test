@@ -9,7 +9,8 @@ export default class App extends React.Component{
     this.state={
       hasComponentMounted: false,
       apiCalled: false,
-      coinData: {}
+      coinData: {},
+      paginationValue: 1
     }
   }
 
@@ -32,13 +33,17 @@ export default class App extends React.Component{
           });
         }
       )
+
+
+
+
   }
 
 
 
   render(){
     return    <div className="App">
-                <Landingpage coinData={this.state.coinData} />
+                <Landingpage coinData={this.state.coinData} paginationValue={this.state.paginationValue} />
               </div>
   }
 }

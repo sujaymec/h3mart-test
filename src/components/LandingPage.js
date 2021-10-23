@@ -3,8 +3,6 @@ import logo from "../h3martlogo.png";
 
 export default function Landingpage(props){
 
-    console.log('this log is from the landing page ', props)
-
     return <React.Fragment>
         <div className="container">
             <nav>
@@ -28,10 +26,10 @@ export default function Landingpage(props){
                 <li>Markets<br /><span>12,469</span></li>
                 <li>BTC DOM Index<br /><span>44.5%</span></li>
             </ul>
-            <table id="crypto-list">
+            <table id="crypto-list" style={{borderCollapse: "collapse"}}>
                 <thead>
                     <tr>
-                        <th style={{textAlign: 'center'}}>Rank</th>
+                        <th style={{textAlign: 'center'}}><b>Rank</b></th>
                         <th style={{textAlign: 'left'}}>Name</th>
                         <th>Price</th>
                         <th>Market Cap</th>
@@ -40,14 +38,16 @@ export default function Landingpage(props){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td style={{textAlign: 'center', width: '80px'}}>1</td>
-                        <td style={{textAlign: 'left', lineHeight: '18px'}}>Bitcoin<br /><span style={{color: 'grey'}}>BTC</span></td>
-                        <td>$61,265.35</td>
-                        <td>$1.15t</td>
-                        <td>$61,118.61</td>
-                        <td className="green-increase">1.06%</td>
+                    {props.coinData.data ? props.coinData.data.map((item, index) => (
+                    <tr key={index}>
+                        <td style={{textAlign: 'center', width: '80px'}}>{item.rank}</td>
+                        <td style={{textAlign: 'left', lineHeight: '18px'}}>{item.name}<br /><span style={{color: 'grey'}}>{item.symbol}</span></td>
+                        <td>${parseFloat(item.priceUsd).toFixed(2)}</td>
+                        <td>${parseFloat((item.marketCapUsd)/1000000000).toFixed(2)}b</td>
+                        <td>${parseFloat((item.vwap24Hr)/1000000000).toFixed(2)}</td>
+                        <td className="green-increase">{parseFloat(item.changePercent24Hr).toFixed(2)}</td>
                     </tr>
+                    )) : ''}
                 </tbody>
             </table>
         </div>
