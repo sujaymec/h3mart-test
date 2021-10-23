@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../h3martlogo.png";
 
 export default function Landingpage(){
     return <React.Fragment>
@@ -9,15 +10,17 @@ export default function Landingpage(){
                     <li>Exchanges</li>
                     <li>Swap</li>
                 </ul>
-                <div id="logo"></div>
+                <div id="logo">
+                    <img src={logo} alt="" />
+                </div>
             </nav>
             <ul id="banner-list">
-                <li>Market Cap<br />$2.59T</li>
-                <li>Market Cap<br />$2.59T</li>
-                <li>Market Cap<br />$2.59T</li>
-                <li>Market Cap<br />$2.59T</li>
-                <li>Market Cap<br />$2.59T</li>
-                <li>Market Cap<br />$2.59T</li>
+                <li>Market Cap<br /><span>$2.59T</span></li>
+                <li>Market Cap<br /><span>$2.59T</span></li>
+                <li>Market Cap<br /><span>$2.59T</span></li>
+                <li>Market Cap<br /><span>$2.59T</span></li>
+                <li>Market Cap<br /><span>$2.59T</span></li>
+                <li>Market Cap<br /><span>$2.59T</span></li>
             </ul>
             <table id="crypto-list">
                 <thead>
