@@ -41,9 +41,7 @@ export default class App extends React.Component{
         }
       )
   }
-
-
-
+  
   render(){
     return    <div className="App">
                 <Landingpage coinData={this.state.coinData} paginationValue={this.state.paginationValue} paginate={this.paginate} />

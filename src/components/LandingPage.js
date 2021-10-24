@@ -44,7 +44,7 @@ export default function Landingpage(props){
                     </tr>
                 </thead>
                 <tbody>
-                    {coinDataList ? coinDataList.map((item, index) => (
+                    {coinDataList && coinDataList.map((item, index) => (
                     <tr key={index}>
                         <td style={{textAlign: 'center', width: '80px'}}>{item.rank}</td>
                         <td style={{textAlign: 'left', lineHeight: '18px'}}>{item.name}<br /><span style={{color: 'grey'}}>{item.symbol}</span></td>
@@ -53,12 +53,13 @@ export default function Landingpage(props){
                         <td>${parseFloat((item.volumeUsd24Hr)/1000000000).toFixed(2)}b</td>
                         <td className="green-increase">{parseFloat(item.changePercent24Hr).toFixed(2)}%</td>
                     </tr>
-                    )) : ''}
+                    ))}
                 </tbody>
             </table>
 
             <div id="load-more">
-                <button onClick={props.paginate}>Load More</button>
+                {coinDataList ? <button onClick={props.paginate}>Load More</button> : <p>API call failed ( pretty sure its CORS error )</p>}
+                
             </div>
         </div>
 
