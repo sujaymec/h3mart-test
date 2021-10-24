@@ -21,7 +21,7 @@ export default function Landingpage(props){
                     <img src={logo} alt="" />
                 </div>
                 <div id="refresh-btn">
-                    <button>Refresh</button>
+                    <button>Connect Wallet</button>
                 </div>
             </nav>
             <ul id="banner-list">
