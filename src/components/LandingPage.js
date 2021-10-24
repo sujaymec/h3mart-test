@@ -47,7 +47,11 @@ export default function Landingpage(props){
                     {coinDataList && coinDataList.map((item, index) => (
                     <tr key={index}>
                         <td style={{textAlign: 'center', width: '80px'}}>{item.rank}</td>
-                        <td style={{textAlign: 'left', lineHeight: '18px'}}>{item.name}<br /><span style={{color: 'grey'}}>{item.symbol}</span></td>
+                        <td style={{textAlign: 'left', lineHeight: '18px'}}>
+                            <img src="https://assets.coincap.io/assets/icons/btc@2x.png" alt="" className="coin-icon" />
+                            {item.name}<br />
+                            <span style={{color: 'grey'}}>{item.symbol}</span>
+                        </td>
                         <td>${parseFloat(item.priceUsd).toFixed(2)}</td>
                         <td>${parseFloat((item.marketCapUsd)/1000000000).toFixed(2)}b</td>
                         <td>${parseFloat((item.volumeUsd24Hr)/1000000000).toFixed(2)}b</td>
@@ -58,7 +62,7 @@ export default function Landingpage(props){
             </table>
 
             <div id="load-more">
-                {coinDataList ? <button onClick={props.paginate}>Load More</button> : <p>API call failed ( pretty sure its CORS error )</p>}
+                {coinDataList ? <button onClick={props.paginate}>Load More</button> : <p style={{textAlign: 'center', marginTop: '25px', width: '100%'}}>API call failed ( pretty sure its CORS error )</p>}
                 
             </div>
         </div>
