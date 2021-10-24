@@ -48,7 +48,7 @@ export default function Landingpage(props){
                     <tr key={index}>
                         <td style={{textAlign: 'center', width: '80px'}}>{item.rank}</td>
                         <td style={{textAlign: 'left', lineHeight: '18px'}}>
-                            <img src="https://assets.coincap.io/assets/icons/btc@2x.png" alt="" className="coin-icon" />
+                            <img src={`https://assets.coincap.io/assets/icons/${item.symbol.toLowerCase()}@2x.png`} alt="" className="coin-icon" />
                             {item.name}<br />
                             <span style={{color: 'grey'}}>{item.symbol}</span>
                         </td>
